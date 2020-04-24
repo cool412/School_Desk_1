@@ -5,23 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
-    SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sp = getSharedPreferences("login", MODE_PRIVATE);
+    }
 
-        if (sp.getBoolean("login",false)){
-            // TO DO...
-        }else {
-            // TO DO...
-           // Intent intent = new Intent (this, LoginActivity.class);
-           // startActivity(intent);
-        }
+    public void signInClicked(View view) {
+        EditText EditUserName = findViewById(R.id.login_user);
+        EditText EditPassword = findViewById(R.id.login_password);
+        String UserName = EditUserName.getText().toString().trim();
+        String PassWord = EditPassword.getText().toString().trim();
+
+        Login lg = new Login(this);
+        lg.execute(UserName, PassWord);
     }
 }
