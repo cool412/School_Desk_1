@@ -1,17 +1,23 @@
 package com.example.schooldesk;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 public class DashboardActivity extends AppCompatActivity {
-    private Activity mActivity;
+    private AppCompatActivity mActivity;
     private Context mContext;
+
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mActionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,19 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         mContext = getApplicationContext();
         mActivity = DashboardActivity.this;
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawable);
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(DashboardActivity.this, mDrawerLayout, R.string.Open, R.string.Close);
+        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
+        mActionBarDrawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (mActionBarDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -35,8 +54,6 @@ public class DashboardActivity extends AppCompatActivity {
                 // Do something when user want to exit the app
                 // Let allow the system to handle the event, such as exit the app
                 finish();
-                DashboardActivity.super.onBackPressed();
-                //finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

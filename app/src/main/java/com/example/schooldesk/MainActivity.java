@@ -27,5 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Login lg = new Login(this);
         lg.execute(UserName, PassWord);
+        // This will finish the current activity and make sure that this activity does not run in background.
+        finish();
     }
 }

@@ -34,6 +34,7 @@ public class Login extends AsyncTask<String, Void, String> {
             Intent intent = new Intent();
             intent.setClass(context.getApplicationContext(), DashboardActivity.class);
             context.startActivity(intent);
+
         } else {
             Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show();
         }
