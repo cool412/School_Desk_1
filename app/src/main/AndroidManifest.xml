@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="Dash Board">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_dashboard"
-        android:title="Dashboard"/>
-    <item android:id="@+id/nav_events"
-        android:title="Events"/>
-    <item android:id="@+id/nav_schedual"
-        android:title="Schedual"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_dashboard"
+            android:title="@string/menu_dashboard"/>
+        <item android:id="@+id/nav_events"
+            android:title="@string/menu_events"/>
+        <item android:id="@+id/nav_schedule"
+            android:title="@string/menu_schedule"/>
+        <item android:id="@+id/nav_exam"
+            android:title="@string/menu_exam"/>
+        <item android:id="@+id/nav_result"
+            android:title="@string/menu_result"/>
+    </group>
+    <item android:title="@string/menu_communicate">
+        <menu>
+            <item android:id="@+id/menu_message"
+                android:title="@string/menu_message"/>
+        </menu>
+    </item>
 </menu>

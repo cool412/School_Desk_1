@@ -2,6 +2,15 @@
     <string name="app_name">School Desk</string>
     <string name="page_title" />
     <string name="hello_this_is_dashboard">Hello! This is Dashboard.</string>
-    <string name="Open">Open</string>
-    <string name="Close">Close</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Below strings are for navigation_menu.xml file -->
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_events">Up coming Events</string>
+    <string name="menu_schedule">Schedule</string>
+    <string name="menu_exam">Exam Schedule</string>
+    <string name="menu_result">Results</string>
+    <string name="menu_communicate">Communicate</string>
+    <string name="menu_message">Send SMS</string>
 </resources>
