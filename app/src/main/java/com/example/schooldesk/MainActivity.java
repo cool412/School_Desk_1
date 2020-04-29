@@ -1,19 +1,19 @@
 package com.example.schooldesk;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.lang.ref.WeakReference;
-import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     private static SharedPrefClass sharedPrefClass;
     EditText EditUserName, EditPassword;
+    ImageView imagePass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPrefClass = new SharedPrefClass(this);
 
-        EditText EditUserName = findViewById(R.id.login_user);
-        EditText EditPassword = findViewById(R.id.login_password);
+        EditUserName = findViewById(R.id.login_user);
+        EditPassword = findViewById(R.id.login_password);
+        imagePass = findViewById(R.id.pass_visibility);
 
         moveToNextActivityIfLogIn();
     }
@@ -56,6 +58,27 @@ public class MainActivity extends AppCompatActivity {
         EditUserName.setText("");
         EditPassword.setText("");
 
+    }
+    /*
+    * This method is fro make password visible and invisible to user.
+    * */
+    public void ShowHidePass(View view) {
+        if(view.getId()==R.id.pass_visibility){
+
+            if(EditPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+                imagePass.setImageResource(R.drawable.invisible);
+
+                //Show Password
+                EditPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+            else{
+                imagePass.setImageResource(R.drawable.visible);
+
+                //Hide Password
+                EditPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+        }
     }
 
     private static class Login extends AsyncTask<String, Void, String> {

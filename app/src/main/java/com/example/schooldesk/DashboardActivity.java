@@ -116,6 +116,7 @@ public class DashboardActivity extends AppCompatActivity implements  NavigationV
         finish();
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (mActionBarDrawerToggle.onOptionsItemSelected(item)){

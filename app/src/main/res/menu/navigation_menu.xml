@@ -5,15 +5,19 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_dashboard"
-            android:icon="@mipmap/ic_dashbord_asset"
+            android:icon="@drawable/ic_dashboard_final"
             android:title="@string/menu_dashboard"/>
         <item android:id="@+id/nav_events"
+            android:icon="@drawable/ic_events"
             android:title="@string/menu_events"/>
         <item android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_schedule"
             android:title="@string/menu_schedule"/>
         <item android:id="@+id/nav_exam"
+            android:icon="@drawable/ic_exam_schedule"
             android:title="@string/menu_exam"/>
         <item android:id="@+id/nav_result"
+            android:icon="@drawable/ic_result"
             android:title="@string/menu_result"/>
     </group>
     <item android:title="@string/menu_communicate">
@@ -21,6 +25,7 @@
             <item android:id="@+id/menu_message"
                 android:title="@string/menu_message"/>
             <item android:id="@+id/logout"
+                android:icon="@drawable/ic_sign_out"
                 android:title="@string/menu_logout"/>
         </menu>
     </item>
