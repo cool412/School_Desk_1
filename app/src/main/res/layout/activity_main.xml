@@ -8,29 +8,53 @@
     android:orientation="vertical"
     android:padding="15dp">
 
+    <ImageView
+        android:layout_width="268dp"
+        android:layout_height="287dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/login_image"
+        android:src="@drawable/ic_login_image" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="USER NAME"
-        android:id="@+id/login_user"/>
+        android:id="@+id/login_user"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:autofillHints=""
+        android:drawableStart="@drawable/baseline_account_circle_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="@string/user_name" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="PASSWORD"
-        android:id="@+id/login_password"/>
+        android:id="@+id/login_password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableStart="@drawable/baseline_vpn_key_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="@string/password"
+        android:importantForAutofill="no" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="sign in"
+        android:layout_marginLeft="20dp"
         android:textAllCaps="true"
+        android:layout_marginRight="20dp"
+        android:text="@string/sign_in"
         android:id="@+id/btn_login"
         android:onClick="signInClicked"/>
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="register"
-        android:textAllCaps="true"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:text="@string/touble_message"
+        tools:ignore="RtlHardcoded" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.schooldesk;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,12 +18,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.lang.ref.WeakReference;
 import java.util.Objects;
 
 public class DashboardActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
     private AppCompatActivity mActivity;
     private Context mContext;
+    // We have defined Object of SharedPreClass class.
+    // Which will help to read all the preferences we have stored during the session.
+    @SuppressLint("StaticFieldLeak")
+    private static SharedPrefClass sharedPrefClass;
 
+    // Declare the DrawerLayout object as global.
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
 
@@ -33,6 +40,8 @@ public class DashboardActivity extends AppCompatActivity implements  NavigationV
 
         mContext = getApplicationContext();
         mActivity = DashboardActivity.this;
+        // Initialize the object of SharedPrefClass.
+        sharedPrefClass = new SharedPrefClass(this);
 
         // We have already removed toolbar from the activity.
         // so, we have to all extra toolbar for activity.
@@ -89,9 +98,22 @@ public class DashboardActivity extends AppCompatActivity implements  NavigationV
             case R.id.menu_message:
                 Toast.makeText(this,"SMS!",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.logout:
+                userLogOut();
+                break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void userLogOut(){
+        // When you logout from the application, it will reset all the sharedpreferences to default.
+        // Here I have considered "User" as dafault user.
+        // Session Id, I would like keep it blank whenever it is not used.
+        sharedPrefClass.writeUserName("User");
+        sharedPrefClass.writeLoginStatus(false);
+        sharedPrefClass.writeSessionId("");
+        finish();
     }
 
     @Override

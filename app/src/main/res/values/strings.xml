@@ -13,4 +13,18 @@
     <string name="menu_result">Results</string>
     <string name="menu_communicate">Communicate</string>
     <string name="menu_message">Send SMS</string>
+    <string name="menu_logout">Log Out</string>
+
+    <!-- Below strings are sources for SharedPreferances -->
+    <string name="pref_file">com.example.preference_file</string>
+    <string name="pref_login_status">com.example.preference_login_status</string>
+    <string name="pref_user_name">com.example.preference_user_name</string>
+    <string name="pref_session_id">com.example.preference_session_id</string>
+
+    <!-- Below sourced for Login page -->
+    <string name="user_name">USER NAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="sign_in">sign in</string>
+    <string name="touble_message">Trouble Sign in? Click here to reset password</string>
+    <string name="login_image">Login Image</string>
 </resources>
